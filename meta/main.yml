@@ -1,0 +1,26 @@
+galaxy_info:
+  author: Marvin Pinto
+  description: |
+    Ansible Galaxy role to build and manage a sample Home Theatre PC (HTPC) setup.
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+    - name: Ubuntu
+      versions:
+       - trusty
+  galaxy_tags:
+    - ubuntu
+    - htpc
+    - sabnzbd
+    - couchpotato
+    - sickrage
+    - plex
+    - nginx
+    - oauth2proxy
+dependencies:
+  - marvinpinto.sabnzbd
+  - marvinpinto.sickrage
+  - marvinpinto.couchpotato
+  - marvinpinto.plex
+  - marvinpinto.nginx
+  - 'marvinpinto.oauth2-proxy'
