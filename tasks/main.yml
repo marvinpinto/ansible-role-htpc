@@ -1,0 +1,24 @@
+---
+- name: 'Add the email addresses for all the users that are authorized to log into the web interface'
+  copy:
+    content: '{{ htpc_authorized_users_emails }}'
+    dest: '/etc/oauth2_proxy_authorized_users'
+    owner: 'root'
+    mode: '0644'
+  notify: 'restart-ansible-role-oauth2proxy'
+
+- name: 'Set the contents of the nginx TLS cert file'
+  copy:
+    content: '{{ htpc_tls_cert }}'
+    dest: '/etc/nginx/htpc-tls-cert.crt'
+    owner: 'root'
+    mode: '0644'
+  notify: 'reload-ansible-role-nginx'
+
+- name: 'Set the contents of the nginx TLS cert key file'
+  copy:
+    content: '{{ htpc_tls_cert_key }}'
+    dest: '/etc/nginx/htpc-tls-cert.key'
+    owner: 'root'
+    mode: '0600'
+  notify: 'reload-ansible-role-nginx'

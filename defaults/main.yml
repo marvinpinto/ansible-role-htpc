@@ -1,0 +1,181 @@
+---
+htpc_dns_hostname: 'htpc-sample.example.org'
+htpc_nginx_static_html_directory: "{{ role_path }}/../marvinpinto.htpc/files/static_html"
+htpc_oauth_cookie_secret: 'N2U2NTI0NzljNjc2Y2VmNGVlZDZmMDg5'  # generated using: date +%s | sha256sum | base64 | head -c 32 ; echo
+htpc_oauth_client_id: 'your-client-id'
+htpc_oauth_client_secret: 'your-client-secret'
+
+
+# Email addresses of users that are allowed to log into the web interface
+htpc_authorized_users_emails: |
+  mary.jones@gmail.com
+  nancy.drew@gmail.com
+
+
+# Note that this is a sample self-signed certificate for 'htpc-sample.example.org'
+htpc_tls_cert: |
+  -----BEGIN CERTIFICATE-----
+  MIIDFzCCAf+gAwIBAgIJANvlxhe4cZtqMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+  BAMMF2h0cGMtc2FtcGxlLmV4YW1wbGUub3JnMB4XDTE2MDkxOTE2NTIyN1oXDTI2
+  MDkxNzE2NTIyN1owIjEgMB4GA1UEAwwXaHRwYy1zYW1wbGUuZXhhbXBsZS5vcmcw
+  ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDu00ZzBG73j0ie5WYtorDn
+  njjP8KPzWodj1EaHVQCYwOE6ERzbAUMU2yzpETTfnWtv2vRSj9D0f3cc2A1eM3CJ
+  QwP+KrGQmNdJeVmWtIs8GXmwcKQiGRxHBxX9jpwvZdEk9DLGGBPlu5iiRfqucLq2
+  8dtXq+aJ/UOJ3DA8EJYxPLdbxm03oUiJKt40QZcEQe7lx9Cg9I8LqcLEWECRxc1t
+  Czcdpd+rsihmR8gBqViC2GlmRzJZ7U1PXv+4x/hpqQPEfnrI+yzbh2L+cCgFAcMj
+  VnZNdAdU62elrH9pm0CVRUwRSiRvK6ivVOWliLcYO+cRRCJSLk1dl4N8XVOXUQz3
+  AgMBAAGjUDBOMB0GA1UdDgQWBBTZgou7piWh9xRyyjFSg0HANeARyTAfBgNVHSME
+  GDAWgBTZgou7piWh9xRyyjFSg0HANeARyTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3
+  DQEBBQUAA4IBAQBSGGX1GJQvypY3WQKR3TVebNtl6S4SIqXODLLzkGLP3gVke4S/
+  ss/9MsZQjfY6LWLHdrHc62b4q6QbGaAKfOYgz7OtkYz0EBO8USeMCuY5xCSXnZM/
+  HkkDuKTgpf38wvzRuAT3k6VIOLMuIF/Psm+SqAhLhzF0ILQ7EUDzKbdf1T0sonSj
+  zk56nffnmTsb6RtQCg0wQ+i8FWJ+FmQNH3EoKBxzI6/GRyJg0MqRY+gduCnKzWw2
+  0/nIXckFZDEjgVtcW48p+4zQEjPnxRARSQ/ndy2DSleIgm9T4NJhCdhQ5jIWiZWo
+  3owU5MRSgm2+M5mrS1OxpVgmIJIF4JAxrvE1
+  -----END CERTIFICATE-----
+
+
+# Note that this is a sample self-signed certificate for 'htpc-sample.example.org'
+htpc_tls_cert_key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  MIIEpAIBAAKCAQEA7tNGcwRu949InuVmLaKw5544z/Cj81qHY9RGh1UAmMDhOhEc
+  2wFDFNss6RE0351rb9r0Uo/Q9H93HNgNXjNwiUMD/iqxkJjXSXlZlrSLPBl5sHCk
+  IhkcRwcV/Y6cL2XRJPQyxhgT5buYokX6rnC6tvHbV6vmif1DidwwPBCWMTy3W8Zt
+  N6FIiSreNEGXBEHu5cfQoPSPC6nCxFhAkcXNbQs3HaXfq7IoZkfIAalYgthpZkcy
+  We1NT17/uMf4aakDxH56yPss24di/nAoBQHDI1Z2TXQHVOtnpax/aZtAlUVMEUok
+  byuor1TlpYi3GDvnEUQiUi5NXZeDfF1Tl1EM9wIDAQABAoIBAGtZSCdW7NIV85yI
+  nH8Sy9WwhvTgw7EVFhpHRlR6XsRKnnJNUt0WGiL7yZoRg+Sni61Bi+S4hEICMXYj
+  nw6irIjmOJs8cYf/S3XZN+3HxXYENXCbkQtKoi1DAB1yxr1/VJz5rwDfvcHbquX1
+  8pIKVcL5v5AO0pdf4cXL1VqKUhhaxfY25CMPUJlpaZz65iXVlUxvYxQL0dHBlc5O
+  rtL7QvBYQ6baT7UsIqmiTWJZCDarBUQ6y35r84TbOb9YEwEyTLuhwHqoTr6DqaQf
+  iTYX54XH9s/KnkQ9ogCQP92xHWxL+dS/ZW03TZLTz2rssZeIOYun9ZwhVWSwSlBz
+  2bDfXGECgYEA+6KKrWOEj2RS28kRCWciUqlcnjksuWjrUS+l4NxWfig60LLmdNre
+  BT2gj6RnezBffiuh8q4lNrfIRasAAypQQB6nnqwehmORbsgL6fP4FIuJfiwxuJRT
+  scX8tx6b8e+bVyjaiGCe1siGwqj9eCkKKJ2zXGDDfJcIHswE1PbLsh8CgYEA8vfZ
+  O4tuVBYa2LyG2xcn0k6gsufZ3ASjFx2H1WD7OYvfieYL7BAc8klNmLeUv4RTp78V
+  8orZm8X0NlIbKAFfj4qHsJr4ImK8RCF0e1Yvk0GCkyZ6aXV92Ivo21e6kwcfYSGS
+  rqqNfax2sT2vjLGL8LemYj8nHzbk6jfYEUvZuikCgYEA5FgQfd0z+qcwZY+k7SJw
+  zBAyIsaBZlLmT0rsvQtVVbAOBzqA1IOUO6871316BhjUXvsbP8x1qpzFmSrenQC1
+  yCnJM7y/CnaqD5xq60df1Mz23M8f435+IHEorceR/c7P6R0CigUbvo5Dc7vEH1km
+  hcrtayPH4XRwgvniXJsEJ0MCgYA9s4lcIL2E5xQsRDwu+UNomgUfSde+kwLjxOEQ
+  5A8IfyfmeiA+85yWPt1Q0hYZSL6B0/n73R0D/RJWlSVGVIrzBegNhl1LRi2vU5uk
+  ErAEQlepjNT7YRXzXxxkT3QXEHD8lq0MZE2IQ7rkqdih7xitqcW8H3OM7sDVZhcd
+  1VhWeQKBgQC4h40/Kbi2hs2t4j6VEThA+TX5kJrQMHQnizCpYZlmy8mSHPS0fe3l
+  IhgPRYxh88K9bLDwCLhEfpoNSsEQN1xFczhtzoDx9ysPgLT00fwa9vssXR4uKiI6
+  V17odQeVW9TSRxLiVz2J+mOF3ZQMgjLm1p8m3KSOCpPLyooZPEluPg==
+  -----END RSA PRIVATE KEY-----
+
+
+# Sample nginx.conf file
+htpc_nginx_config_file: |
+  user root;
+  worker_processes 1;
+
+  error_log /var/log/nginx/error.log warn;
+  pid /var/run/nginx.pid;
+
+  events {
+      worker_connections  1024;
+  }
+
+  http {
+      client_max_body_size 10m;
+      client_body_buffer_size 128k;
+
+      #Timeout if the real server is dead
+      proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
+
+      # Advanced Proxy Config
+      send_timeout 5m;
+      proxy_read_timeout 240;
+      proxy_send_timeout 240;
+      proxy_connect_timeout 240;
+
+      # Basic Proxy Config
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_redirect  http://  $scheme://;
+      proxy_http_version 1.1;
+      proxy_set_header Connection "";
+      proxy_cache_bypass $cookie_session;
+      proxy_no_cache $cookie_session;
+      proxy_buffers 32 4k;
+
+      include       /etc/nginx/mime.types;
+      default_type  application/octet-stream;
+      log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+      access_log off;
+      sendfile        on;
+      keepalive_timeout  65;
+
+      upstream sabnzbd {
+        server 127.0.0.1:8080;
+        keepalive 512;
+      }
+
+      upstream sickrage {
+        server 127.0.0.1:8081;
+        keepalive 512;
+      }
+
+      upstream couchpotato {
+        server 127.0.0.1:5050;
+        keepalive 512;
+      }
+
+      upstream oauth2proxy {
+        server 127.0.0.1:4180;
+        keepalive 512;
+      }
+
+      server {
+        listen 80 default_server;
+        server_name _;
+        return 301 https://$host$request_uri;
+      }
+
+      server {
+        listen 443 ssl;
+        server_name {{ htpc_dns_hostname }};
+        ssl_certificate /etc/nginx/htpc-tls-cert.crt;
+        ssl_certificate_key /etc/nginx/htpc-tls-cert.key;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+
+        location / {
+          proxy_pass http://oauth2proxy;
+          proxy_connect_timeout 1;
+          proxy_send_timeout 30;
+          proxy_read_timeout 30;
+        }
+      }
+
+      server {
+        listen 81;
+        server_name _;
+
+        location /sabnzbd {
+          proxy_pass http://sabnzbd;
+        }
+
+        location /sickrage {
+          proxy_pass http://sickrage;
+        }
+
+        location /couchpotato {
+          proxy_pass http://couchpotato;
+        }
+
+        location / {
+          root /usr/share/nginx/html;
+          index index.html index.htm;
+        }
+      }
+
+  }
