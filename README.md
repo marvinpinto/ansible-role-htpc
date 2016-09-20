@@ -125,8 +125,7 @@ Post-setup Configuration
   - TV Processing:
     - **Category**: `tv`
     - **Script**: `nzbToSickBeard.py`
-    - **Folder/Path**: `/opt/downloads/unprocessed/tv`
-
+    - **Folder/Path**: `/opt/downloads/tv`
 
 1. In `/sabnzbd/config/switches/`:
 
