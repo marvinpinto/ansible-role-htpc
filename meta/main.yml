@@ -18,7 +18,6 @@ galaxy_info:
     - nginx
     - oauth2proxy
 dependencies:
-  - marvinpinto.couchpotato
   - marvinpinto.plex
 
   - role: 'marvinpinto.sabnzbd'
@@ -45,3 +44,6 @@ dependencies:
 
   - role: 'marvinpinto.sickrage'
     sickrage_app_data_directory: '/opt/config/sickrage-config'
+
+  - role: 'marvinpinto.couchpotato'
+    couchpotato_app_data_directory: '/opt/config/couchpotato-config'

@@ -171,6 +171,57 @@ Post-setup Configuration
   $ service sickrage start
   ```
 
+### CouchPotato
+
+1. Stop the CouchPotato service:
+
+  ``` bash
+  $ service couchpotato stop
+  ```
+
+1. Allow nginx to proxy requests to CouchPotato
+
+  ``` bash
+  $ sed -i 's/^url_base =.*/url_base = \/couchpotato/g' /opt/config/couchpotato-config/settings.conf
+  $ sed -i 's/^show_wizard =.*/show_wizard = 0/g' /opt/config/couchpotato-config/settings.conf
+  ```
+
+1. Add the following key/value under the `[core]` section in
+   `/opt/config/couchpotato-config/settings.conf`
+
+  ``` bash
+  host = 127.0.0.1
+  ```
+
+1. Start the CouchPotato service:
+
+  ``` bash
+  $ service couchpotato start
+  ```
+
+1. Navigate over to `/couchpotato/settings/general` in your browser and disable
+   periodic update checking.
+
+1. In `/couchpotato/settings/renamer`:
+
+  - **Rename Downloaded Movies**: `Enabled`
+  - **Run Every**: `0`
+  - **From**: `/opt/downloads/unprocessed/movies`
+  - **To**: `/opt/downloads/movies`
+  - **Force Every**: `24`
+  - **Clenaup**: `Enabled`
+  - **Next On Failed**: `Disabled`
+  - Make a note of your **API Key** and update the `htpc_couchpotato_api_key`
+  variable with this value
+
+1. In `/couchpotato/settings/downloaders`:
+
+  - **Sabnzbd**: `Enabled`
+  - **Host**: `127.0.0.1:8080`
+  - **Category**: `movies`
+  - **Remove NZB**: `enabled`
+  - **Delete Failed**: `enabled`
+
 
 Development
 -----------

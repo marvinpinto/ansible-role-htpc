@@ -4,6 +4,7 @@ htpc_nginx_static_html_directory: "{{ role_path }}/../marvinpinto.htpc/files/sta
 htpc_oauth_cookie_secret: 'N2U2NTI0NzljNjc2Y2VmNGVlZDZmMDg5'  # generated using: date +%s | sha256sum | base64 | head -c 32 ; echo
 htpc_oauth_client_id: 'your-client-id'
 htpc_oauth_client_secret: 'your-client-secret'
+htpc_couchpotato_api_key: 'your-couchpotato-api-key'
 
 
 # Email addresses of users that are allowed to log into the web interface
@@ -227,23 +228,23 @@ htpc_nzbtomedia_configuration: |
       #### movies - category that gets called for post-processing with CPS
       [[movies]]
           enabled = 1
-          apikey =
-          host = localhost
+          apikey = {{ htpc_couchpotato_api_key }}
+          host = 127.0.0.1
           port = 5050
           ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
           ssl = 0
-          web_root =
+          web_root = /couchpotato
           # Enable/Disable linking for Torrents
           Torrent_NoLink = 0
           keep_archive = 1
           method = renamer
-          delete_failed = 0
+          delete_failed = 1
           wait_for = 2
           extract = 1
           # Set this to minimum required size to consider a media file valid (in MB)
           minSize = 0
           # Enable/Disable deleting ignored files (samples and invalid media files)
-          delete_ignored = 0
+          delete_ignored = 1
           ##### Enable if Couchpotato is on a remote server for this category
           remote_path = 0
           ##### Set to path where download client places completed downloads locally for this category
