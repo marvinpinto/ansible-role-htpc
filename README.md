@@ -163,6 +163,7 @@ Post-setup Configuration
   $ sed -i 's/^auto_update =.*/auto_update = 0/g' /opt/config/sickrage-config/config.ini
   $ sed -i 's/^version_notify =.*/version_notify = 0/g' /opt/config/sickrage-config/config.ini
   $ sed -i 's/^naming_pattern =.*/naming_pattern = %S.N.S%0SE%0E.%E.N/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^web_host =.*/web_host = 127.0.0.1/g' /opt/config/sickrage-config/config.ini
   ```
 
 1. Start the SickRage service:
