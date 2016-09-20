@@ -62,6 +62,7 @@
     - 'sabnzbd-config'
     - 'sickrage-config'
     - 'couchpotato-config'
+    - 'plex-config'
 
 - name: 'Create the /opt/downloads directory'
   file:

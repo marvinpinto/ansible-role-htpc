@@ -18,8 +18,6 @@ galaxy_info:
     - nginx
     - oauth2proxy
 dependencies:
-  - marvinpinto.plex
-
   - role: 'marvinpinto.sabnzbd'
     sabnzbd_nzbtomedia_autoprocessmedia_cfg: '{{ htpc_nzbtomedia_configuration }}'
     sabnzbd_daemon_config_file: '/opt/config/sabnzbd-config/sabnzbd.ini'
@@ -47,3 +45,6 @@ dependencies:
 
   - role: 'marvinpinto.couchpotato'
     couchpotato_app_data_directory: '/opt/config/couchpotato-config'
+
+  - role: 'marvinpinto.plex'
+    plex_server_version: '1.1.4.2757-24ffd60'

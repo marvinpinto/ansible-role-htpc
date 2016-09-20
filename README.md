@@ -223,6 +223,43 @@ Post-setup Configuration
   - **Remove NZB**: `enabled`
   - **Delete Failed**: `enabled`
 
+### Plex Media Server
+
+Since Plex only allows administrative actions to be initiated from a local
+subnet, you will need to create an SSH tunnel to your host machine for the
+initial setup. Note that this **only needed for the initial setup**.
+
+https://support.plex.tv/hc/en-us/articles/200288586-Installation
+
+In its general form, this SSH command looks something like this:
+
+```bash
+ssh ip.address.of.server -L 8888:localhost:32400
+```
+
+Then browsing over to [http://localhost:8888/web](http://localhost:8888/web)
+should allow you to configure your Plex app.
+
+In a vagrant environment, that ssh command looks something like:
+
+```bash
+ssh \
+  -p <Port> \
+  -i <IdentityFile> \
+  -L 8888:localhost:32400 \
+  <User>@<HostName>
+```
+
+Where `Port`, `IdentityFile`, `User`, and `HostName` can all be found by
+running:
+
+```bash
+vagrant ssh-config
+```
+
+More information available on the Plex [Installation
+Docs](https://support.plex.tv/hc/en-us/articles/200288586-Installation).
+
 
 Development
 -----------
@@ -231,3 +268,6 @@ Use the supplied `Vagrantfile` for local development and testing.
 ``` bash
 $ vagrant up --provision
 ```
+
+vagrant ssh-config > /tmp/vagrant.ssh
+ssh -F /tmp/vagrant.ssh -L 8888:localhost:32400 default
