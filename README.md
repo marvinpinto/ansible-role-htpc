@@ -97,8 +97,53 @@ Use it in a playbook as follows:
 ```
 
 
+Post-setup Configuration
+------------------------
+
+### SABnzbd
+
+1. Navigate over to `/sabnzbd` in your browser and follow the initial wizard
+   setup.
+
+1. In `/sabnzbd/config/general/`, you probably want to **Disable API-key** (not
+   needed since it's running behind OAuth2 Proxy).
+
+1. In `/sabnzbd/config/folders/`:
+
+  - **Temporary Download Folder**: `/opt/downloads/sabnzbd-incomplete`
+  - **Completed Download Folder**: `/opt/downloads/misc`
+  - **Permissions for completed downloads**: `777`
+  - **Scripts folder**: `/opt/nzbtomedia`
+
+1. In `/sabnzbd/config/categories/`:
+
+  - Movie Processing:
+    - **Category**: `movies`
+    - **Script**: `nzbToCouchPotato.py`
+    - **Folder/Path**: `/opt/downloads/unprocessed/movies`
+
+  - TV Processing:
+    - **Category**: `tv`
+    - **Script**: `nzbToSickBeard.py`
+    - **Folder/Path**: `/opt/downloads/unprocessed/tv`
+
+
+1. In `/sabnzbd/config/switches/`:
+
+  - **Action when encrypted RAR is downloaded**: `abort`
+  - **Action when unwanted extension detected**: `abort`
+  - **Unwanted extensions**: `exe, com`
+  - **Post-Process Only Verified Jobs**: `off`
+  - **Ignore Samples**: `on`
+  - **Cleanup List**: `nfo, sfv`
+
+1. In `/sabnzbd/config/special/`:
+
+  - `empty_postproc`: `on`
+
+
 Development
--------------
+-----------
 Use the supplied `Vagrantfile` for local development and testing.
 
 ``` bash

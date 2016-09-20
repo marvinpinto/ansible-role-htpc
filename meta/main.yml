@@ -18,10 +18,13 @@ galaxy_info:
     - nginx
     - oauth2proxy
 dependencies:
-  - marvinpinto.sabnzbd
   - marvinpinto.sickrage
   - marvinpinto.couchpotato
   - marvinpinto.plex
+
+  - role: 'marvinpinto.sabnzbd'
+    sabnzbd_nzbtomedia_autoprocessmedia_cfg: '{{ htpc_nzbtomedia_configuration }}'
+    sabnzbd_daemon_config_file: '/opt/config/sabnzbd-config/sabnzbd.ini'
 
   - role: 'marvinpinto.nginx'
     nginx_static_html_directory: '{{ htpc_nginx_static_html_directory }}'
