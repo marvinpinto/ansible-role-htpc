@@ -141,6 +141,37 @@ Post-setup Configuration
 
   - `empty_postproc`: `on`
 
+### SickRage
+
+1. Stop the SickRage service:
+
+  ``` bash
+  $ service sickrage stop
+  ```
+
+1. Allow nginx to proxy requests to SickRage
+
+  ``` bash
+  $ sed -i 's/^web_root = ""/web_root = \/sickrage/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^handle_reverse_proxy = 0/handle_reverse_proxy = 1/g' /opt/config/sickrage-config/config.ini
+  ```
+
+1. Misc. other SickRage settings
+
+  ``` bash
+  $ sed -i 's/^use_failed_downloads = 0/use_failed_downloads = 1/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^log_nr = 5/log_nr = 1/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^auto_update =.*/auto_update = 0/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^version_notify =.*/version_notify = 0/g' /opt/config/sickrage-config/config.ini
+  $ sed -i 's/^naming_pattern =.*/naming_pattern = %S.N.S%0SE%0E.%E.N/g' /opt/config/sickrage-config/config.ini
+  ```
+
+1. Start the SickRage service:
+
+  ``` bash
+  $ service sickrage start
+  ```
+
 
 Development
 -----------

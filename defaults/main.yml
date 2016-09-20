@@ -259,10 +259,10 @@ htpc_nzbtomedia_configuration: |
           username =
           password =
           ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
-          web_root =
+          web_root = /sickrage
           ssl = 0
           fork = auto
-          delete_failed = 0
+          delete_failed = 1
           # Enable/Disable linking for Torrents
           Torrent_NoLink = 0
           keep_archive = 1
@@ -270,13 +270,13 @@ htpc_nzbtomedia_configuration: |
           # force processing of already processed content when running a manual scan.
           force = 0
           # tell SickRage to delete all source files after processing.
-          delete_on = 0
+          delete_on = 1
           extract = 1
           nzbExtractionBy = Downloader
           # Set this to minimum required size to consider a media file valid (in MB)
           minSize = 0
           # Enable/Disable deleting ignored files (samples and invalid media files)
-          delete_ignored = 0
+          delete_ignored = 1
           ##### Enable if SickBeard is on a remote server for this category
           remote_path = 0
           ##### Set to path where download client places completed downloads locally for this category

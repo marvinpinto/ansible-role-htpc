@@ -18,7 +18,6 @@ galaxy_info:
     - nginx
     - oauth2proxy
 dependencies:
-  - marvinpinto.sickrage
   - marvinpinto.couchpotato
   - marvinpinto.plex
 
@@ -43,3 +42,6 @@ dependencies:
       --redirect-url="https://{{ htpc_dns_hostname }}/oauth2/callback"
       --request-logging="false"
       --authenticated-emails-file=/etc/oauth2_proxy_authorized_users
+
+  - role: 'marvinpinto.sickrage'
+    sickrage_app_data_directory: '/opt/config/sickrage-config'
