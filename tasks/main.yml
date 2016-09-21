@@ -1,0 +1,99 @@
+---
+- name: 'Add the email addresses for all the users that are authorized to log into the web interface'
+  copy:
+    content: '{{ htpc_authorized_users_emails }}'
+    dest: '/etc/oauth2_proxy_authorized_users'
+    owner: 'root'
+    mode: '0644'
+  notify: 'restart-ansible-role-oauth2proxy'
+
+- name: 'Set the contents of the nginx TLS cert file'
+  copy:
+    content: '{{ htpc_tls_cert }}'
+    dest: '/etc/nginx/htpc-tls-cert.crt'
+    owner: 'root'
+    mode: '0644'
+  notify: 'reload-ansible-role-nginx'
+
+- name: 'Set the contents of the nginx TLS cert key file'
+  copy:
+    content: '{{ htpc_tls_cert_key }}'
+    dest: '/etc/nginx/htpc-tls-cert.key'
+    owner: 'root'
+    mode: '0600'
+  notify: 'reload-ansible-role-nginx'
+
+- name: 'Install avconv + friends'
+  apt:
+    name: 'libav-tools'
+    state: 'installed'
+
+- name: 'Create the "downloaders" user + group'
+  user:
+    name: "downloaders"
+
+- name: 'Add all the app users to the "downloaders" group'
+  user:
+    name: '{{ item }}'
+    groups: 'downloaders'
+    append: yes
+  with_items:
+    - 'plex'
+    - 'couchdaemon'
+    - 'sabdownloader'
+    - 'sickdaemon'
+
+- name: 'Create the /opt/config directory'
+  file:
+    path: '/opt/config'
+    state: 'directory'
+    owner: 'downloaders'
+    group: 'downloaders'
+    mode: '0775'
+
+- name: 'Create the app config directories'
+  file:
+    path: '/opt/config/{{ item }}'
+    state: 'directory'
+    owner: 'downloaders'
+    group: 'downloaders'
+    mode: '0775'
+  with_items:
+    - 'sabnzbd-config'
+    - 'sickrage-config'
+    - 'couchpotato-config'
+    - 'plex-config'
+
+- name: 'Create the /opt/downloads directory'
+  file:
+    path: '/opt/downloads'
+    state: 'directory'
+    owner: 'downloaders'
+    group: 'downloaders'
+    mode: '0775'
+
+- name: 'Create the download data directories'
+  file:
+    path: '/opt/downloads/{{ item }}'
+    state: 'directory'
+    owner: 'downloaders'
+    group: 'downloaders'
+    mode: '0775'
+  with_items:
+    - 'unprocessed'
+    - 'sabnzbd-incomplete'
+    - 'tv'
+    - 'movies'
+    - 'misc'
+
+- name: 'Create the sabnzbd unprocessed downloads directories'
+  file:
+    path: '/opt/downloads/unprocessed/{{ item }}'
+    state: 'directory'
+    owner: 'downloaders'
+    group: 'downloaders'
+    mode: '0775'
+  with_items:
+    - 'tv'
+    - 'movies'
+    - 'misc'

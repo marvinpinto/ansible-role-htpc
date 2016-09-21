@@ -1,0 +1,405 @@
+---
+htpc_dns_hostname: 'htpc-sample.example.org'
+htpc_nginx_static_html_directory: "{{ role_path }}/../marvinpinto.htpc/files/static_html"
+htpc_oauth_cookie_secret: 'N2U2NTI0NzljNjc2Y2VmNGVlZDZmMDg5'  # generated using: date +%s | sha256sum | base64 | head -c 32 ; echo
+htpc_oauth_client_id: 'your-client-id'
+htpc_oauth_client_secret: 'your-client-secret'
+htpc_couchpotato_api_key: 'your-couchpotato-api-key'
+
+
+# Email addresses of users that are allowed to log into the web interface
+htpc_authorized_users_emails: |
+  mary.jones@gmail.com
+  nancy.drew@gmail.com
+
+
+# Note that this is a sample self-signed certificate for 'htpc-sample.example.org'
+htpc_tls_cert: |
+  -----BEGIN CERTIFICATE-----
+  MIIDFzCCAf+gAwIBAgIJANvlxhe4cZtqMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+  BAMMF2h0cGMtc2FtcGxlLmV4YW1wbGUub3JnMB4XDTE2MDkxOTE2NTIyN1oXDTI2
+  MDkxNzE2NTIyN1owIjEgMB4GA1UEAwwXaHRwYy1zYW1wbGUuZXhhbXBsZS5vcmcw
+  ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDu00ZzBG73j0ie5WYtorDn
+  njjP8KPzWodj1EaHVQCYwOE6ERzbAUMU2yzpETTfnWtv2vRSj9D0f3cc2A1eM3CJ
+  QwP+KrGQmNdJeVmWtIs8GXmwcKQiGRxHBxX9jpwvZdEk9DLGGBPlu5iiRfqucLq2
+  8dtXq+aJ/UOJ3DA8EJYxPLdbxm03oUiJKt40QZcEQe7lx9Cg9I8LqcLEWECRxc1t
+  Czcdpd+rsihmR8gBqViC2GlmRzJZ7U1PXv+4x/hpqQPEfnrI+yzbh2L+cCgFAcMj
+  VnZNdAdU62elrH9pm0CVRUwRSiRvK6ivVOWliLcYO+cRRCJSLk1dl4N8XVOXUQz3
+  AgMBAAGjUDBOMB0GA1UdDgQWBBTZgou7piWh9xRyyjFSg0HANeARyTAfBgNVHSME
+  GDAWgBTZgou7piWh9xRyyjFSg0HANeARyTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3
+  DQEBBQUAA4IBAQBSGGX1GJQvypY3WQKR3TVebNtl6S4SIqXODLLzkGLP3gVke4S/
+  ss/9MsZQjfY6LWLHdrHc62b4q6QbGaAKfOYgz7OtkYz0EBO8USeMCuY5xCSXnZM/
+  HkkDuKTgpf38wvzRuAT3k6VIOLMuIF/Psm+SqAhLhzF0ILQ7EUDzKbdf1T0sonSj
+  zk56nffnmTsb6RtQCg0wQ+i8FWJ+FmQNH3EoKBxzI6/GRyJg0MqRY+gduCnKzWw2
+  0/nIXckFZDEjgVtcW48p+4zQEjPnxRARSQ/ndy2DSleIgm9T4NJhCdhQ5jIWiZWo
+  3owU5MRSgm2+M5mrS1OxpVgmIJIF4JAxrvE1
+  -----END CERTIFICATE-----
+
+
+# Note that this is a sample self-signed certificate for 'htpc-sample.example.org'
+htpc_tls_cert_key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  MIIEpAIBAAKCAQEA7tNGcwRu949InuVmLaKw5544z/Cj81qHY9RGh1UAmMDhOhEc
+  2wFDFNss6RE0351rb9r0Uo/Q9H93HNgNXjNwiUMD/iqxkJjXSXlZlrSLPBl5sHCk
+  IhkcRwcV/Y6cL2XRJPQyxhgT5buYokX6rnC6tvHbV6vmif1DidwwPBCWMTy3W8Zt
+  N6FIiSreNEGXBEHu5cfQoPSPC6nCxFhAkcXNbQs3HaXfq7IoZkfIAalYgthpZkcy
+  We1NT17/uMf4aakDxH56yPss24di/nAoBQHDI1Z2TXQHVOtnpax/aZtAlUVMEUok
+  byuor1TlpYi3GDvnEUQiUi5NXZeDfF1Tl1EM9wIDAQABAoIBAGtZSCdW7NIV85yI
+  nH8Sy9WwhvTgw7EVFhpHRlR6XsRKnnJNUt0WGiL7yZoRg+Sni61Bi+S4hEICMXYj
+  nw6irIjmOJs8cYf/S3XZN+3HxXYENXCbkQtKoi1DAB1yxr1/VJz5rwDfvcHbquX1
+  8pIKVcL5v5AO0pdf4cXL1VqKUhhaxfY25CMPUJlpaZz65iXVlUxvYxQL0dHBlc5O
+  rtL7QvBYQ6baT7UsIqmiTWJZCDarBUQ6y35r84TbOb9YEwEyTLuhwHqoTr6DqaQf
+  iTYX54XH9s/KnkQ9ogCQP92xHWxL+dS/ZW03TZLTz2rssZeIOYun9ZwhVWSwSlBz
+  2bDfXGECgYEA+6KKrWOEj2RS28kRCWciUqlcnjksuWjrUS+l4NxWfig60LLmdNre
+  BT2gj6RnezBffiuh8q4lNrfIRasAAypQQB6nnqwehmORbsgL6fP4FIuJfiwxuJRT
+  scX8tx6b8e+bVyjaiGCe1siGwqj9eCkKKJ2zXGDDfJcIHswE1PbLsh8CgYEA8vfZ
+  O4tuVBYa2LyG2xcn0k6gsufZ3ASjFx2H1WD7OYvfieYL7BAc8klNmLeUv4RTp78V
+  8orZm8X0NlIbKAFfj4qHsJr4ImK8RCF0e1Yvk0GCkyZ6aXV92Ivo21e6kwcfYSGS
+  rqqNfax2sT2vjLGL8LemYj8nHzbk6jfYEUvZuikCgYEA5FgQfd0z+qcwZY+k7SJw
+  zBAyIsaBZlLmT0rsvQtVVbAOBzqA1IOUO6871316BhjUXvsbP8x1qpzFmSrenQC1
+  yCnJM7y/CnaqD5xq60df1Mz23M8f435+IHEorceR/c7P6R0CigUbvo5Dc7vEH1km
+  hcrtayPH4XRwgvniXJsEJ0MCgYA9s4lcIL2E5xQsRDwu+UNomgUfSde+kwLjxOEQ
+  5A8IfyfmeiA+85yWPt1Q0hYZSL6B0/n73R0D/RJWlSVGVIrzBegNhl1LRi2vU5uk
+  ErAEQlepjNT7YRXzXxxkT3QXEHD8lq0MZE2IQ7rkqdih7xitqcW8H3OM7sDVZhcd
+  1VhWeQKBgQC4h40/Kbi2hs2t4j6VEThA+TX5kJrQMHQnizCpYZlmy8mSHPS0fe3l
+  IhgPRYxh88K9bLDwCLhEfpoNSsEQN1xFczhtzoDx9ysPgLT00fwa9vssXR4uKiI6
+  V17odQeVW9TSRxLiVz2J+mOF3ZQMgjLm1p8m3KSOCpPLyooZPEluPg==
+  -----END RSA PRIVATE KEY-----
+
+
+# Sample nginx.conf file
+htpc_nginx_config_file: |
+  user root;
+  worker_processes 1;
+
+  error_log /var/log/nginx/error.log warn;
+  pid /var/run/nginx.pid;
+
+  events {
+      worker_connections  1024;
+  }
+
+  http {
+      client_max_body_size 10m;
+      client_body_buffer_size 128k;
+
+      #Timeout if the real server is dead
+      proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
+
+      # Advanced Proxy Config
+      send_timeout 5m;
+      proxy_read_timeout 240;
+      proxy_send_timeout 240;
+      proxy_connect_timeout 240;
+
+      # Basic Proxy Config
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Scheme $scheme;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_redirect  http://  $scheme://;
+      proxy_http_version 1.1;
+      proxy_set_header Connection "";
+      proxy_cache_bypass $cookie_session;
+      proxy_no_cache $cookie_session;
+      proxy_buffers 32 4k;
+
+      include       /etc/nginx/mime.types;
+      default_type  application/octet-stream;
+      log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+      access_log off;
+      sendfile        on;
+      keepalive_timeout  65;
+
+      upstream sabnzbd {
+        server 127.0.0.1:8080;
+        keepalive 512;
+      }
+
+      upstream sickrage {
+        server 127.0.0.1:8081;
+        keepalive 512;
+      }
+
+      upstream couchpotato {
+        server 127.0.0.1:5050;
+        keepalive 512;
+      }
+
+      upstream oauth2proxy {
+        server 127.0.0.1:4180;
+        keepalive 512;
+      }
+
+      upstream plex {
+        server 127.0.0.1:32400;
+        keepalive 512;
+      }
+
+      server {
+        listen 80 default_server;
+        server_name _;
+        return 301 https://$host$request_uri;
+      }
+
+      server {
+        listen 443 ssl;
+        server_name {{ htpc_dns_hostname }};
+        ssl_certificate /etc/nginx/htpc-tls-cert.crt;
+        ssl_certificate_key /etc/nginx/htpc-tls-cert.key;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+
+        location / {
+          proxy_pass http://oauth2proxy;
+          proxy_connect_timeout 1;
+          proxy_send_timeout 30;
+          proxy_read_timeout 30;
+        }
+      }
+
+      server {
+        listen 81;
+        server_name _;
+
+        location /sabnzbd {
+          proxy_pass http://sabnzbd;
+        }
+
+        location /sickrage {
+          proxy_pass http://sickrage;
+        }
+
+        location /couchpotato {
+          proxy_pass http://couchpotato;
+        }
+
+        location /web {
+          proxy_pass http://plex;
+          proxy_set_header Host localhost;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        location / {
+          root /usr/share/nginx/html;
+          index index.html index.htm;
+        }
+      }
+
+  }
+
+
+htpc_nzbtomedia_configuration: |
+  # nzbToMedia Configuration
+  # For more information, visit https://github.com/clinton-hall/nzbToMedia/wiki
+
+  [General]
+      # Enable/Disable update notifications
+      version_notify = 0
+      # Enable/Disable automatic updates
+      auto_update = 0
+      # Set to the full path to the git executable
+      git_path =
+      # GitHUB user for repo
+      git_user =
+      # GitHUB branch for repo
+      git_branch =
+      # Enable/Disable forceful cleaning of leftover files following postprocess
+      force_clean = 1
+      # Enable/Disable logging debug messages to nzbtomedia.log
+      log_debug = 0
+      # Enable/Disable logging database messages to nzbtomedia.log
+      log_db = 0
+      # Enable/Disable logging environment variables to debug nzbtomedia.log (helpful to track down errors calling external tools.)
+      log_env = 0
+      # Enable/Disable logging git output to debug nzbtomedia.log (helpful to track down update failures.)
+      log_git = 0
+      # Set to the directory where your ffmpeg/ffprobe executables are located
+      ffmpeg_path =
+      # Enable/Disable media file checking using ffprobe.
+      check_media = 1
+      # Enable/Disable a safety check to ensure we don't process all downloads in the default_downloadDirectories by mistake.
+      safe_mode = 1
+
+  [Posix]
+      ### Process priority setting for External commands (Extractor and Transcoder) on Posix (Unix/Linux/OSX) systems.
+      # Set the Niceness value for the nice command. These range from -20 (most favorable to the process) to 19 (least favorable to the process).
+      niceness = 0
+      # Set the ionice scheduling class. 0 for none, 1 for real time, 2 for best-effort, 3 for idle.
+      ionice_class = 0
+      # Set the ionice scheduling class data. This defines the class data, if the class accepts an argument. For real time and best-effort, 0-7 is valid data.
+      ionice_classdata = 0
+
+  [CouchPotato]
+      #### autoProcessing for Movies
+      #### movies - category that gets called for post-processing with CPS
+      [[movies]]
+          enabled = 1
+          apikey = {{ htpc_couchpotato_api_key }}
+          host = 127.0.0.1
+          port = 5050
+          ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
+          ssl = 0
+          web_root = /couchpotato
+          # Enable/Disable linking for Torrents
+          Torrent_NoLink = 0
+          keep_archive = 1
+          method = renamer
+          delete_failed = 1
+          wait_for = 2
+          extract = 1
+          # Set this to minimum required size to consider a media file valid (in MB)
+          minSize = 0
+          # Enable/Disable deleting ignored files (samples and invalid media files)
+          delete_ignored = 1
+          ##### Enable if Couchpotato is on a remote server for this category
+          remote_path = 0
+          ##### Set to path where download client places completed downloads locally for this category
+          watch_dir =
+
+  [SickBeard]
+      #### autoProcessing for TV Series
+      #### tv - category that gets called for post-processing with SB
+      [[tv]]
+          enabled = 1
+          host = 127.0.0.1
+          port = 8081
+          username =
+          password =
+          ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
+          web_root = /sickrage
+          ssl = 0
+          fork = auto
+          delete_failed = 1
+          # Enable/Disable linking for Torrents
+          Torrent_NoLink = 0
+          keep_archive = 1
+          process_method =
+          # force processing of already processed content when running a manual scan.
+          force = 0
+          # tell SickRage to delete all source files after processing.
+          delete_on = 1
+          extract = 1
+          nzbExtractionBy = Downloader
+          # Set this to minimum required size to consider a media file valid (in MB)
+          minSize = 0
+          # Enable/Disable deleting ignored files (samples and invalid media files)
+          delete_ignored = 1
+          ##### Enable if SickBeard is on a remote server for this category
+          remote_path = 0
+          ##### Set to path where download client places completed downloads locally for this category
+          watch_dir =
+
+  [Nzb]
+      ###### clientAgent - Supported clients: sabnzbd, nzbget
+      clientAgent = sabnzbd
+      ###### SabNZBD (You must edit this if your using nzbToMedia.py with SabNZBD)
+      sabnzbd_host = http://127.0.0.1
+      sabnzbd_port = 8080
+      sabnzbd_apikey =
+      ###### Enter the default path to your default download directory (non-category downloads). this directory is protected by safe_mode.
+      default_downloadDirectory = /opt/downloads/misc/
+
+  [Extensions]
+      compressedExtensions = .zip,.rar,.7z,.gz,.bz,.tar,.arj,.1,.01,.001
+      mediaExtensions = .mkv,.avi,.divx,.xvid,.mov,.wmv,.mp4,.mpg,.mpeg,.vob,.iso,.m4v,.ts
+      audioExtensions = .mp3, .aac, .ogg, .ape, .m4a, .asf, .wma, .flac
+      metaExtensions = .nfo,.sub,.srt,.jpg,.gif
+
+  [Plex]
+      # Only enter these details if you want to update plex library after processing.
+      # Do not enter these details if you send the plex notifications from Sickbeard/CouchPotato.
+      plex_host = localhost
+      plex_port = 32400
+      plex_token =
+      plex_ssl = 0
+      # Enter Plex category to section mapping as Category,section and separate each pair with '|'
+      # e.g. plex_sections = movie,3|tv,4
+      plex_sections =
+
+  [Transcoder]
+      # getsubs. enable to download subtitles.
+      getSubs = 1
+      # subLanguages. create a list of languages in the order you want them in your subtitles.
+      subLanguages = eng
+      # transcode. enable to use transcoder
+      transcode = 1
+      ###### duplicate =1 will create a new file. =0 will replace the original
+      duplicate = 1
+      # concat. joins cd1 cd2 etc into a single video.
+      concat = 1
+      # IgnoreExtensions is a comma-separated list of extensions that will not be transcoded.
+      ignoreExtensions = .mp4
+      # outputFastStart. 1 will use -movflags + faststart. 0 will disable this from being used.
+      outputFastStart = 0
+      # outputQualityPercent. used as -q:a value. 0 will disable this from being used.
+      outputQualityPercent = 0
+      # outputVideoPath. Set path you want transcoded videos moved to. Leave blank to disable.
+      outputVideoPath =
+      # processOutput. 1 will send the outputVideoPath to SickBeard/CouchPotato. 0 will send original files.
+      processOutput = 0
+      # audioLanguage. set the 3 letter language code you want as your primary audio track.
+      audioLanguage = eng
+      # allAudioLanguages. 1 will keep all audio tracks (uses AudioCodec3) where available.
+      allAudioLanguages = 0
+      # allSubLanguages. 1 will keep all existing sub languages. 0 will discard those not in your list above.
+      allSubLanguages = 0
+      # embedSubs. 1 will embed external sub/srt subs into your video if this is supported.
+      embedSubs = 1
+      # burnInSubtitle. burns the default sub language into your video (needed for players that don't support subs)
+      burnInSubtitle = 0
+      # extractSubs. 1 will extract subs from the video file and save these as external srt files.
+      extractSubs = 0
+      # externalSubDir. set the directory where subs should be saved (if not the same directory as the video)
+      externalSubDir =
+      # hwAccel. 1 will set ffmpeg to enable hardware acceleration (this requires a recent ffmpeg)
+      hwAccel = 1
+      # generalOptions. Enter your additional ffmpeg options here with commas to separate each option/value (i.e replace spaces with commas).
+      generalOptions =
+      # outputDefault. Loads default configs for the selected device. The remaining options below are ignored.
+      # If you want to use your own profile, leave this blank and set the remaining options below.
+      # outputDefault profiles allowed: iPad, iPad-1080p, iPad-720p, Apple-TV2, iPod, iPhone, PS3, xbox, Roku-1080p, Roku-720p, Roku-480p, mkv, mp4-scene-release
+      outputDefault =
+      #### Define custom settings below.
+      outputVideoExtension = .mp4
+      outputVideoCodec = libx264
+      VideoCodecAllow =
+      outputVideoPreset = medium
+      outputVideoResolution = 1920:1080
+      outputVideoFramerate = 24
+      outputVideoBitrate = 800000
+      outputVideoCRF = 19
+      outputVideoLevel = 3.1
+      outputAudioCodec = ac3
+      AudioCodecAllow =
+      outputAudioChannels = 6
+      outputAudioBitrate = 640k
+      outputAudioTrack2Codec = libfaac
+      AudioCodec2Allow =
+      outputAudioTrack2Channels = 2
+      outputAudioTrack2Bitrate = 128000
+      outputAudioOtherCodec = libmp3lame
+      AudioOtherCodecAllow =
+      outputAudioOtherChannels =
+      outputAudioOtherBitrate = 128000
+      outputSubtitleCodec =
+
+  [ASCII]
+      #Set convert =1 if you want to convert any "foreign" characters to ASCII (UTF8) before passing to SB/CP etc. Default is disabled (0).
+      convert = 1
+
+  [passwords]
+      # enter the full path to a text file containing passwords to be used for extraction attempts.
+      # In the passwords file, every password should be on a new line
+      PassWordFile =
+
+  [Custom]
+      # enter a list (comma separated) of Group Tags you want removed from filenames to help with subtitle matching.
+      # e.g remove_group = [rarbag],-NZBgeek
+      # be careful if your "group" is a common "real" word. Please report if you have any group replacements that would fall in this category.
+      remove_group =

@@ -1,0 +1,7 @@
+---
+- src: 'marvinpinto.sabnzbd'
+- src: 'marvinpinto.sickrage'
+- src: 'marvinpinto.couchpotato'
+- src: 'marvinpinto.plex'
+- src: 'marvinpinto.nginx'
+- src: 'marvinpinto.oauth2-proxy'

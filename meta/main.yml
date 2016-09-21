@@ -1,7 +1,7 @@
 galaxy_info:
   author: Marvin Pinto
   description: |
-    Ansible Galaxy role to build and manage a sample Home Theatre PC (HTPC) setup.
+    This is an Ansible Galaxy meta-role of sorts to install and manage a sample Home Theatre PC (HTPC) setup.
   license: MIT
   min_ansible_version: 2.0
   platforms:
@@ -18,9 +18,33 @@ galaxy_info:
     - nginx
     - oauth2proxy
 dependencies:
-  - marvinpinto.sabnzbd
-  - marvinpinto.sickrage
-  - marvinpinto.couchpotato
-  - marvinpinto.plex
-  - marvinpinto.nginx
-  - 'marvinpinto.oauth2-proxy'
+  - role: 'marvinpinto.sabnzbd'
+    sabnzbd_nzbtomedia_autoprocessmedia_cfg: '{{ htpc_nzbtomedia_configuration }}'
+    sabnzbd_daemon_config_file: '/opt/config/sabnzbd-config/sabnzbd.ini'
+
+  - role: 'marvinpinto.nginx'
+    nginx_static_html_directory: '{{ htpc_nginx_static_html_directory }}'
+    nginx_config_file: '{{ htpc_nginx_config_file }}'
+
+  - role: 'marvinpinto.oauth2-proxy'
+    oauth2_proxy_cli_args: >-
+      --upstream="http://127.0.0.1:81/"
+      --cookie-secret="{{ htpc_oauth_cookie_secret }}"
+      --cookie-secure="true"
+      --cookie-expire="0h30m0s"
+      --cookie-refresh="0h5m0s"
+      --client-id="{{ htpc_oauth_client_id }}"
+      --client-secret="{{ htpc_oauth_client_secret }}"
+      --provider="google"
+      --redirect-url="https://{{ htpc_dns_hostname }}/oauth2/callback"
+      --request-logging="false"
+      --authenticated-emails-file=/etc/oauth2_proxy_authorized_users
+
+  - role: 'marvinpinto.sickrage'
+    sickrage_app_data_directory: '/opt/config/sickrage-config'
+
+  - role: 'marvinpinto.couchpotato'
+    couchpotato_app_data_directory: '/opt/config/couchpotato-config'
+
+  - role: 'marvinpinto.plex'
+    plex_server_version: '1.1.4.2757-24ffd60'
