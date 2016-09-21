@@ -125,4 +125,13 @@
     mode: '0644'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
+- name: 'Log all sickrage output to syslog'
+  copy:
+    src: 'rsyslog.d/sickrage.conf'
+    dest: '/etc/rsyslog.d/sickrage.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'restart-ansible-role-htpc-rsyslog'
+
 - meta: flush_handlers
