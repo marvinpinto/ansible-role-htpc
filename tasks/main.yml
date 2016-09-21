@@ -106,3 +106,14 @@
     line: '$ModLoad imfile'
     insertbefore: '^\$IncludeConfig'
   notify: 'restart-ansible-role-htpc-rsyslog'
+
+- name: 'Log all sabnzbd output to syslog'
+  copy:
+    src: 'rsyslog.d/sabnzbd.conf'
+    dest: '/etc/rsyslog.d/sabnzbd.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'restart-ansible-role-htpc-rsyslog'
+
+- meta: flush_handlers
