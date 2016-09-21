@@ -107,31 +107,17 @@
     insertbefore: '^\$IncludeConfig'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
-- name: 'Log all sabnzbd output to syslog'
+- name: 'Log the relevant app output to syslog'
   copy:
-    src: 'rsyslog.d/sabnzbd.conf'
-    dest: '/etc/rsyslog.d/sabnzbd.conf'
+    src: 'rsyslog.d/{{ item }}'
+    dest: '/etc/rsyslog.d/{{ item }}'
     owner: 'root'
     group: 'root'
     mode: '0644'
-  notify: 'restart-ansible-role-htpc-rsyslog'
-
-- name: 'Log all couchpotato output to syslog'
-  copy:
-    src: 'rsyslog.d/couchpotato.conf'
-    dest: '/etc/rsyslog.d/couchpotato.conf'
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  notify: 'restart-ansible-role-htpc-rsyslog'
-
-- name: 'Log all sickrage output to syslog'
-  copy:
-    src: 'rsyslog.d/sickrage.conf'
-    dest: '/etc/rsyslog.d/sickrage.conf'
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
+  with_items:
+    - 'sabnzbd.conf'
+    - 'couchpotato.conf'
+    - 'sickrage.conf'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
 - meta: flush_handlers
