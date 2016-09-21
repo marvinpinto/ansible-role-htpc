@@ -1,0 +1,5 @@
+---
+- name: 'restart-ansible-role-htpc-rsyslog'
+  service:
+    name: 'rsyslog'
+    state: 'restarted'
