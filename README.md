@@ -268,6 +268,3 @@ Use the supplied `Vagrantfile` for local development and testing.
 ``` bash
 $ vagrant up --provision
 ```
-
-vagrant ssh-config > /tmp/vagrant.ssh
-ssh -F /tmp/vagrant.ssh -L 8888:localhost:32400 default
