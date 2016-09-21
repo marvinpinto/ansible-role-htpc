@@ -15,6 +15,7 @@ install:
   - echo -e 'localhost ansible_connection=local' > tests/inventory
   - echo -e '[defaults]\nroles_path = ../:/opt/ansible_roles\nhostfile = ./tests/inventory' > ansible.cfg
   - 'sudo ansible-galaxy install -r galaxy-roles.yml -p /opt/ansible_roles'
+  - 'sudo ln -fTs ${TRAVIS_BUILD_DIR} /opt/ansible_roles/marvinpinto.htpc'
 
 script:
   - ansible-playbook --syntax-check tests/test.yml
