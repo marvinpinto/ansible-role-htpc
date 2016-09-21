@@ -116,4 +116,13 @@
     mode: '0644'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
+- name: 'Log all couchpotato output to syslog'
+  copy:
+    src: 'rsyslog.d/couchpotato.conf'
+    dest: '/etc/rsyslog.d/couchpotato.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'restart-ansible-role-htpc-rsyslog'
+
 - meta: flush_handlers
