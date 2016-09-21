@@ -97,3 +97,27 @@
     - 'tv'
     - 'movies'
     - 'misc'
+
+- name: 'Load the rsyslog imfile module'
+  lineinfile:
+    dest: '/etc/rsyslog.conf'
+    state: 'present'
+    regexp: '^\$ModLoad imfile'
+    line: '$ModLoad imfile'
+    insertbefore: '^\$IncludeConfig'
+  notify: 'restart-ansible-role-htpc-rsyslog'
+
+- name: 'Log the relevant app output to syslog'
+  copy:
+    src: 'rsyslog.d/{{ item }}'
+    dest: '/etc/rsyslog.d/{{ item }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  with_items:
+    - 'sabnzbd.conf'
+    - 'couchpotato.conf'
+    - 'sickrage.conf'
+  notify: 'restart-ansible-role-htpc-rsyslog'
+
+- meta: flush_handlers
