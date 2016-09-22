@@ -118,6 +118,7 @@
     - 'sabnzbd.conf'
     - 'couchpotato.conf'
     - 'sickrage.conf'
+    - 'nzbtomedia.conf'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
 - meta: flush_handlers
