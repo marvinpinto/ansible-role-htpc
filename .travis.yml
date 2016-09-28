@@ -30,6 +30,7 @@ script:
   - 'curl -X GET http://localhost:8081'
   - 'curl -X GET http://localhost:5050'
   - 'curl -X GET http://localhost:32400'
+  - 'curl -X GET http://localhost:8181'
 
 notifications:
   email: false

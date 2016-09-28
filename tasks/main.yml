@@ -42,6 +42,7 @@
     - 'couchdaemon'
     - 'sabdownloader'
     - 'sickdaemon'
+    - 'headphonesdaemon'
 
 - name: 'Create the /opt/config directory'
   file:
@@ -63,6 +64,7 @@
     - 'sickrage-config'
     - 'couchpotato-config'
     - 'plex-config'
+    - 'headphones-config'
 
 - name: 'Create the /opt/downloads directory'
   file:
@@ -85,6 +87,7 @@
     - 'tv'
     - 'movies'
     - 'misc'
+    - 'audio'
 
 - name: 'Create the sabnzbd unprocessed downloads directories'
   file:
@@ -97,6 +100,7 @@
     - 'tv'
     - 'movies'
     - 'misc'
+    - 'audio'
 
 - name: 'Load the rsyslog imfile module'
   lineinfile:
@@ -119,6 +123,7 @@
     - 'couchpotato.conf'
     - 'sickrage.conf'
     - 'nzbtomedia.conf'
+    - 'headphones.conf'
   notify: 'restart-ansible-role-htpc-rsyslog'
 
 - meta: flush_handlers
