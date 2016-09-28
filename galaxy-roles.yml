@@ -5,3 +5,4 @@
 - src: 'marvinpinto.plex'
 - src: 'marvinpinto.nginx'
 - src: 'marvinpinto.oauth2-proxy'
+- src: 'marvinpinto.headphones'

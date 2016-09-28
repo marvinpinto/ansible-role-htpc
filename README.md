@@ -127,6 +127,11 @@ Post-setup Configuration
     - **Script**: `nzbToSickBeard.py`
     - **Folder/Path**: `/opt/downloads/tv`
 
+  - Audio Processing:
+    - **Category**: `audio`
+    - **Script**: `nzbToHeadPhones.py`
+    - **Folder/Path**: `/opt/downloads/unprocessed/audio`
+
 1. In `/sabnzbd/config/switches/`:
 
   - **Action when encrypted RAR is downloaded**: `abort`
@@ -259,6 +264,60 @@ vagrant ssh-config
 
 More information available on the Plex [Installation
 Docs](https://support.plex.tv/hc/en-us/articles/200288586-Installation).
+
+### Headphones
+
+1. Stop the Headphones service:
+
+  ``` bash
+  $ service headphones stop
+  ```
+
+1. Allow nginx to proxy requests to Headphones
+
+  ``` bash
+  sed -i 's/^http_root =.*/http_root = \/headphones/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^http_host =.*/http_host = 127.0.0.1/g' /opt/config/headphones-config/config.ini
+  ```
+
+1. Misc. config options
+
+  ``` bash
+  sed -i 's/^music_encoder =.*/music_encoder = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^preferred_quality =.*/preferred_quality = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^rename_files =.*/rename_files = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^folder_format =.*/folder_format = $Type/$Artist/$Album [$Year]/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^move_files =.*/move_files = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^cleanup_files =.*/cleanup_files = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^embed_album_art =.*/embed_album_art = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^destination_dir =.*/destination_dir = \/opt\/downloads\/audio/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^download_dir =.*/download_dir = \/opt\/downloads\/unprocessed\/audio/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^launch_browser =.*/launch_browser = 0/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^api_key =.*/api_key = YOURAPIKEY/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^encoder_multicore =.*/encoder_multicore = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^api_enabled =.*/api_enabled = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^correct_metadata =.*/correct_metadata = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^encoder =.*/encoder = libav/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^download_scan_interval =.*/download_scan_interval = 0/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^bitrate =.*/bitrate = 256/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^wait_until_release_date =.*/wait_until_release_date = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^embed_lyrics =.*/embed_lyrics = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^encoderoutputformat =.*/encoderoutputformat = m4a/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^sab_host =.*/sab_host = http:\/\/127.0.0.1:8080/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^sab_category =.*/sab_category = audio/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^sab_apikey =.*/sab_apikey = sabapi1234/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^songkick_enabled =.*/songkick_enabled = 0/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^log_dir =.*/log_dir = \/opt\/config\/headphones-config\/logs/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^include_extras =.*/include_extras = 1/g' /opt/config/headphones-config/config.ini
+  sed -i 's/^extras =.*/extras = 8/g' /opt/config/headphones-config/config.ini
+  ```
+
+1. Start the Headphones service:
+
+  ``` bash
+  $ service headphones start
+  ```
+
 
 
 Development
