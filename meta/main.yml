@@ -22,6 +22,8 @@ dependencies:
   - role: 'marvinpinto.sabnzbd'
     sabnzbd_nzbtomedia_autoprocessmedia_cfg: '{{ htpc_nzbtomedia_configuration }}'
     sabnzbd_daemon_config_file: '/opt/config/sabnzbd-config/sabnzbd.ini'
+    sabnzbd_app_nzbtomedia_repo: '{{ htpc_sabnzbd_app_nzbtomedia_repo }}'
+    sabnzbd_app_nzbtomedia_version: '{{ htpc_sabnzbd_app_nzbtomedia_version }}'
 
   - role: 'marvinpinto.nginx'
     nginx_static_html_directory: '{{ htpc_nginx_static_html_directory }}'
@@ -43,6 +45,7 @@ dependencies:
 
   - role: 'marvinpinto.sickrage'
     sickrage_app_data_directory: '/opt/config/sickrage-config'
+    sickrage_app_version: '{{ htpc_sickrage_app_version }}'
 
   - role: 'marvinpinto.couchpotato'
     couchpotato_app_data_directory: '/opt/config/couchpotato-config'

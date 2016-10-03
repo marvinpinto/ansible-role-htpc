@@ -6,6 +6,10 @@ htpc_oauth_client_id: 'your-client-id'
 htpc_oauth_client_secret: 'your-client-secret'
 htpc_couchpotato_api_key: 'your-couchpotato-api-key'
 
+htpc_sabnzbd_app_nzbtomedia_repo: 'https://github.com/clinton-hall/nzbToMedia.git'
+htpc_sabnzbd_app_nzbtomedia_version: '2d770510a284fadc6b44628626f5769789086dbb'  # SHA corresponding to v10.15
+htpc_sickrage_app_version: '2016.09.28-1'  # Corresponding release tag
+
 
 # Email addresses of users that are allowed to log into the web interface
 htpc_authorized_users_emails: |
