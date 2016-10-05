@@ -23,9 +23,15 @@
     mode: '0600'
   notify: 'reload-ansible-role-nginx'
 
-- name: 'Install avconv + friends'
+- name: 'Add the official ffmpeg trusty PPA'
+  apt_repository:
+    repo: 'ppa:mc3man/trusty-media'
+    state: 'present'
+    update_cache: 'yes'
+
+- name: 'Install ffmpeg + friends'
   apt:
-    name: 'libav-tools'
+    name: 'ffmpeg'
     state: 'installed'
 
 - name: 'Create the "downloaders" user + group'
