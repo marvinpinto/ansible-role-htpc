@@ -8,7 +8,7 @@ htpc_couchpotato_api_key: 'your-couchpotato-api-key'
 
 htpc_sabnzbd_app_nzbtomedia_repo: 'https://github.com/clinton-hall/nzbToMedia.git'
 htpc_sabnzbd_app_nzbtomedia_version: '2d770510a284fadc6b44628626f5769789086dbb'  # SHA corresponding to v10.15
-htpc_sickrage_app_version: '2016.09.28-1'  # Corresponding release tag
+htpc_sickrage_app_version: 'v2018.04.08-1'  # Release tag on https://github.com/SickRage/SickRage
 htpc_couchpotato_app_version: 'build/3.0.1'  # Release tag on https://github.com/CouchPotato/CouchPotatoServer
 htpc_plex_server_version: '1.12.3.4973-215c28d86' # From https://www.plex.tv/downloads
 htpc_headphones_app_version: 'v0.5.16'  # Release tag on https://github.com/rembo10/headphones
